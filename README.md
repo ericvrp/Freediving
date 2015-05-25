@@ -1,2 +1,2 @@
 # Freediving
-Freediving related stuff
+Personal freediving related projects. Might be interesting for other to.
