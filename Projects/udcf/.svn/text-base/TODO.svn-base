@@ -1,0 +1,11 @@
+Things that are known not to work:
+
+- Other then 1 seconds per sample rates.
+
+Things we plan to add:
+
+- faster samplerate support
+- better usage/help
+- a website frontend
+
+
