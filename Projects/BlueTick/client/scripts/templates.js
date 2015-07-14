@@ -12,7 +12,8 @@ Template.home.events({
 
   'click .resetCountdown': function () {
     countdownClock.setTime(120);
-    new Howl({src: ['audio/en/120.ogg'], autoplay: true}); //Initial interval not called that's why it's manually done here??
+    countdownClock.start();
+    new Howl({src: ['audio/en/120.mp3'], autoplay: true}); //Initial interval not called that's why it's manually done here??
   },
 });
 

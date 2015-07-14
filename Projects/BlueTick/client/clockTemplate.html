@@ -17,14 +17,14 @@
         callbacks: {
 		        	interval: function() {
 		        		var time = this.factory.getTime().time;
-		        		if(time) {
-                  new Howl({src: ['audio/en/' + time + '.ogg'], autoplay: true});
+		        		if (_.contains([120, 90, 60, 30, 20, 10, 5, 4, 3, 2, 1], time)) {
+                  new Howl({src: ['audio/en/' + time + '.mp3'], autoplay: true});
                   //console.log('interval', time);
 			        	}
 		        	},
 
               stop: function() {
-                new Howl({src: ['audio/en/top.ogg'], autoplay: true});
+                new Howl({src: ['audio/en/top.mp3'], autoplay: true});
                 //console.log('stop');
               }
 		        }
