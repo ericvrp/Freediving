@@ -6,12 +6,31 @@
   <div class="countdownClock"></div>
 
   <script type="text/javascript">
+    //http://flipclockjs.com
     var clock = $('.clock').FlipClock({
 		    clockFace: 'TwentyFourHourClock'
 	     });
 
-    var countdownClock = $('.countdownClock').FlipClock(120, {  //two minutes until Official Top
-        countdown: true
+    var countdownClock = $('.countdownClock').FlipClock(10, {  //two minutes until Official Top
+        countdown: true,
+
+        callbacks: {
+		        	interval: function() {
+		        		var time = this.factory.getTime().time;
+		        		if(time) {
+                  new Howl({src: ['audio/en/' + time + '.ogg'], autoplay: true});
+                  //console.log('interval', time);
+			        	}
+		        	},
+
+              stop: function() {
+                new Howl({src: ['audio/en/top.ogg'], autoplay: true});
+                //console.log('stop');
+              }
+		        }
        });
+
+    //https://github.com/goldfire/howler.js/tree/2.0
+    //new Howl({src: ['audio/en/top.ogg'], autoplay: true});
   </script>
 </template>

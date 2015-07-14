@@ -8,6 +8,10 @@ Template.home.events({
   'click button': function () {
     // increment the counter when button is clicked
     Session.set('counter', Session.get('counter') + 1);
+
+    /*var sound =*/
+    new Howl({src: ['audio/en/top.ogg'], autoplay: true});
+    //console.log(sound);
   }
 });
 
