@@ -12,3 +12,4 @@ twbs:bootstrap
 coffeescript
 less
 iron:router
+objectivehtml:flipclock

@@ -1,0 +1,17 @@
+<template name="clockTemplate">
+  <p>Current Time</p>
+  <div class="clock"></div>
+  <br/>
+  <p>Countdown until Offical Top</p>
+  <div class="countdownClock"></div>
+
+  <script type="text/javascript">
+    var clock = $('.clock').FlipClock({
+		    clockFace: 'TwentyFourHourClock'
+	     });
+
+    var countdownClock = $('.countdownClock').FlipClock(120, {  //two minutes until Official Top
+        countdown: true
+       });
+  </script>
+</template>
