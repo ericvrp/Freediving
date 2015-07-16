@@ -45,9 +45,7 @@ Template.home.events({
     },
 
     'click #testAudio': function () {
-      var filename = 'http://127.0.0.1:3000/audio/' + Session.get('language') + '/120.' + Session.get('audioformat');
-      //console.log(filename);
-      new Audio(filename).play();
+      PlaySample('120');
     },
 
     'change #language': function (e, c) {
