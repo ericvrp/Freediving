@@ -1,24 +1,54 @@
+//
+// helpers
+//
 Template.home.helpers({
-  counter: function () {
-    return Session.get('counter');
-  }
+   languages: function() {
+     return Languages.find({}, {sort: {name: 1}});
+   },
+
+   audioformats: function() {
+     return AudioFormats.find({}, {sort: {name: 1}});
+   },
 });
 
+
+//
+// Global template helpers
+//
+Template.registerHelper('language', function() {
+  return Session.get('language');
+});
+
+Template.registerHelper('audioformat', function() {
+  return Session.get('audioformat');
+});
+
+
+//
+// events
+//
 Template.home.events({
-  'click .incCounter': function () {
-    // increment the counter when button is clicked
-    Session.set('counter', Session.get('counter') + 1);
-  },
+    'click #startCountdown': function () {
+      if (!countdownClock.running) {
+        countdownClock.start();
+      }
+    },
 
-  'click .resetCountdown': function () {
-    countdownClock.setTime(120);
-    countdownClock.start();
-    new Howl({src: ['audio/en/120.mp3'], autoplay: true}); //Initial interval not called that's why it's manually done here??
-  },
-});
+    'click #stopCountdown': function () {
+      if (countdownClock.running) {
+        countdownClock.stop();
+      }
+    },
 
-//Global template helpers
-Template.registerHelper('randColor', function() {
-  choices = ['#bada55','#B43831', '#783BA3', '#00AB1B', '#143275', '#FFA700'];
-  return Random.choice(choices);
+    'click #resetCountdown': function () {
+      countdownClock.setTime(120);
+    },
+
+    'change #language': function (e, c) {
+      Session.set('language', e.currentTarget.value);
+    },
+
+    'change #audioformat': function (e, c) {
+      Session.set('audioformat', e.currentTarget.value);
+    },
 });

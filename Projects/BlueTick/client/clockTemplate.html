@@ -1,8 +1,8 @@
 <template name="clockTemplate">
-  <p>Current Time</p>
+  <!-- <p>Current Time</p> -->
   <div class="clock"></div>
   <br/>
-  <p>Countdown until Offical Top</p>
+  <!-- <p>Countdown until Offical Top</p> -->
   <div class="countdownClock"></div>
 
   <script type="text/javascript">
@@ -12,25 +12,27 @@
 	     });
 
     var countdownClock = $('.countdownClock').FlipClock(120, {  //two minutes until Official Top
+        autoStart: false,
         countdown: true,
 
         callbacks: {
 		        	interval: function() {
 		        		var time = this.factory.getTime().time;
+                //console.log(time + ' ' + Session.get('language') + ' ' + Session.get('audioformat'));
 		        		if (_.contains([120, 90, 60, 30, 20, 10, 5, 4, 3, 2, 1], time)) {
-                  new Howl({src: ['audio/en/' + time + '.mp3'], autoplay: true});
-                  //console.log('interval', time);
+                  new Howl({src: ['audio/' + Session.get('language') + '/' + time + '.' + Session.get('audioformat')], autoplay: true});
 			        	}
 		        	},
 
               stop: function() {
-                new Howl({src: ['audio/en/top.mp3'], autoplay: true});
-                //console.log('stop');
+                var time = this.factory.getTime().time;
+                if (time == 0) {
+                  new Howl({src: ['audio/' + Session.get('language') + '/top.' + Session.get('audioformat')], autoplay: true});
+                }
               }
 		        }
        });
 
     //https://github.com/goldfire/howler.js/tree/2.0
-    //new Howl({src: ['audio/en/top.ogg'], autoplay: true});
   </script>
 </template>

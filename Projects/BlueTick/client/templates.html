@@ -1,9 +1,19 @@
-  <template name="home">
+<template name="home">
   {{> clockTemplate}}
 
-  <button class="btn btn-warning resetCountdown">Reset countdown</button><br/><br/>
+  <button id="startCountdown" class="btn btn-warning">Start</button>
+  <button id="stopCountdown" class="btn btn-warning">Stop</button>
+  <button id="resetCountdown" class="btn btn-warning">Reset</button>
 
-  <!-- <button class="btn btn-warning incCounter">Click this button</button>
-  <p style="color:{{randColor}}">You've pressed the button {{counter}} times.</p>
-  <br/> -->
+  <select id="language">
+    {{#each languages}}
+      <option value="{{abbr}}">{{name}}</option>
+    {{/each}}
+  </select>
+
+  <select id="audioformat">
+    {{#each audioformats}}
+      <option value="{{abbr}}">{{name}}</option>
+    {{/each}}
+  </select>
 </template>
