@@ -44,6 +44,12 @@ Template.home.events({
       countdownClock.setTime(120);
     },
 
+    'click #testAudio': function () {
+      var filename = 'http://127.0.0.1:3000/audio/' + Session.get('language') + '/120.' + Session.get('audioformat');
+      //console.log(filename);
+      new Audio(filename).play();
+    },
+
     'change #language': function (e, c) {
       Session.set('language', e.currentTarget.value);
     },
