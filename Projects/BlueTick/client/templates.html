@@ -6,13 +6,13 @@
   <button id="resetCountdown" class="btn btn-warning">Reset</button>
   <button id="testAudio" class="btn btn-warning">Test Audio</button>
 
-  <select id="language">
+  <select id="languageSelect">
     {{#each languages}}
       <option value="{{abbr}}">{{name}}</option>
     {{/each}}
   </select>
 
-  <select id="audioformat">
+  <select id="audioformatSelect">
     {{#each audioformats}}
       <option value="{{abbr}}">{{name}}</option>
     {{/each}}

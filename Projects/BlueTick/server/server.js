@@ -13,4 +13,12 @@ Meteor.startup(function () {
     AudioFormats.insert({name: "Ogg Vorbis", abbr: "ogg"});
   }
 
+  Meteor.publish("languages", function () {
+    return Languages.find();
+  });
+
+  Meteor.publish("audioformats", function () {
+    return AudioFormats.find();
+  });
+
 });

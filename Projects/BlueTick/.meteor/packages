@@ -6,11 +6,15 @@
 
 meteor-platform
 msavin:mongol
-autopublish
-insecure
 twbs:bootstrap
 coffeescript
 less
 iron:router
 objectivehtml:flipclock
 msavin:jetsetter
+momentjs:moment
+ian:accounts-ui-bootstrap-3
+accounts-password
+francocatena:status
+reactive-var
+email

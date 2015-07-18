@@ -11,6 +11,13 @@ Template.home.helpers({
    },
 });
 
+Meteor.startup(function () {
+  // code to run on client at startup
+
+  Meteor.subscribe("languages");
+  Meteor.subscribe("audioformats");
+});
+
 
 //
 // Global template helpers
@@ -48,11 +55,11 @@ Template.home.events({
       PlaySample('120');
     },
 
-    'change #language': function (e, c) {
+    'change #languageSelect': function (e, c) {
       Session.set('language', e.currentTarget.value);
     },
 
-    'change #audioformat': function (e, c) {
+    'change #audioformatSelect': function (e, c) {
       Session.set('audioformat', e.currentTarget.value);
     },
 });
